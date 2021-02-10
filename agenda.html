@@ -119,6 +119,18 @@ function rellenarTabla2(){
     }
 }
 
+function borrarPersona(){
+    for(a=0; a<personas.length; a++){
+        let persona = personas[a]
+        if(persona.id==idPersonaSel){
+            personas.splice(a,1)
+            break
+        }
+    }
+    rellenarTabla()
+    vaciarFormulario()
+}
+
 function modificarPersona(){
     for(let persona of personas){
         if(persona.id == idPersonaSel){
@@ -137,18 +149,21 @@ function modificarPersona(){
 function modoInsercion(){
     document.getElementById("btnInsertar").disabled  = false
     document.getElementById("btnModificar").disabled = true
+    document.getElementById("btnBorrar").disabled    = true
 }
 
 //Para cuando el usuario selecciona una persona
 function modoSeleccion(){
     document.getElementById("btnInsertar").disabled  = true
     document.getElementById("btnModificar").disabled = false
+    document.getElementById("btnBorrar").disabled    = false
 }
 
 function inicializar(){
     document.getElementById("btnInsertar").onclick  = insertarPersona
     document.getElementById("btnVaciar").onclick    = vaciarFormulario
     document.getElementById("btnModificar").onclick = modificarPersona
+    document.getElementById("btnBorrar").onclick    = borrarPersona
 
 
     modoInsercion()
@@ -163,6 +178,7 @@ window.onload = inicializar
         <div>
             <input type="button" id="btnInsertar"  value="Insertar"/>
             <input type="button" id="btnModificar" value="Modify"/>
+            <input type="button" id="btnBorrar"    value="Delete"/>
             <input type="button" id="btnVaciar"    value="Trash"/>
         </div>
         <br/>

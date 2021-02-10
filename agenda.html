@@ -159,13 +159,40 @@ function modoSeleccion(){
     document.getElementById("btnBorrar").disabled    = false
 }
 
+function guardarDatos(){
+    //En el session/local storage solo podemos guardar cadenas de texto
+    //sessionStorage.setItem("clave","valor")
+    //sessionStorage.getItem("clave")
+    //sessionStorage.removeItem("clave")
+    //sessionStorage.clear()
+
+    //localStorage.setItem("clave","valor")
+    //localStorage.getItem("clave")
+    //localStorage.removeItem("clave")
+    //localStorage.clear()
+
+    //No podemos guardar directamente el array
+    //localStorage.setItem("personas", personas)
+    localStorage.setItem("personas", JSON.stringify(personas))
+}
+
+function cargarDatos(){
+    let personasJSON = localStorage.getItem("personas")
+    //if( personasJSON != null){
+    if( personasJSON ) {
+        personas = JSON.parse(personasJSON)
+        rellenarTabla()
+    }
+}
+
 function inicializar(){
     document.getElementById("btnInsertar").onclick  = insertarPersona
     document.getElementById("btnVaciar").onclick    = vaciarFormulario
     document.getElementById("btnModificar").onclick = modificarPersona
     document.getElementById("btnBorrar").onclick    = borrarPersona
+    document.getElementById("btnGuardar").onclick   = guardarDatos
 
-
+    cargarDatos()
     modoInsercion()
 }
 
@@ -180,6 +207,7 @@ window.onload = inicializar
             <input type="button" id="btnModificar" value="Modify"/>
             <input type="button" id="btnBorrar"    value="Delete"/>
             <input type="button" id="btnVaciar"    value="Trash"/>
+            <input type="button" id="btnGuardar"   value="Save"/>
         </div>
         <br/>
         <form id="formulario">

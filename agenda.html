@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure JS Agenda</title>
+</head>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+
+<body>
+    <div class="container">
+        <h1>Pure JS Agenda</h1>
+        <div>
+            <input type="button" id="btnInsertar"  value="Insertar"/>
+        </div>
+        <br/>
+        <form id="formulario">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" name="nombre" id="nombre"/>
+                    </td>
+                    <td id="msj_nombre"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <input type="text" name="direccion" id="direccion"/>
+                    </td>
+                    <td id="msj_direccion"></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>
+                        <input type="text" name="telefono" id="telefono"/>
+                    </td>
+                    <td id="msj_telefono"></td>
+                </tr>
+                <tr>
+                    <td>Em@il</td>
+                    <td>
+                        <input type="text" name="correoE" id="correoE"/>
+                    </td>
+                    <td id="msj_correoE"></td>
+                </tr>
+            </table>
+        </form>
+
+        <br/>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Em@ail</th>
+            </tr>
+            <tbody id="tablaPersonas"></tbody>
+        </table>
+        <hr/>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Em@ail</th>
+            </tr>
+            <tbody id="tablaPersonas2"></tbody>
+        </table>
+    </div>
+</body>
+</html>
+

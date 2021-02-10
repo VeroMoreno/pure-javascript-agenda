@@ -26,8 +26,23 @@ function insertarPersona(){
     }
     //La añadimos al array
     personas.push(persona)
+    //Vaciamos el formulario
+    vaciarFormulario()
     //Actualizamos la tabla
     rellenarTabla()
+}
+
+function vaciarFormulario(){
+    //Vaciamos tambien la variable en la que guardamos el id de la persona seleccionada
+    idPersonaSel = null;
+    document.getElementById("nombre").value    = ""
+    document.getElementById("direccion").value = ""
+    document.getElementById("telefono").value  = ""
+    document.getElementById("correoE").value   = ""
+    if(trSeleccionado){
+        trSeleccionado.style.background = "white"
+    }
+    modoInsercion()
 }
 
 function rellenarFormulario(persona){
@@ -114,9 +129,9 @@ function modoSeleccion(){
     document.getElementById("btnInsertar").disabled  = true
 }
 
-
 function inicializar(){
     document.getElementById("btnInsertar").onclick  = insertarPersona
+    document.getElementById("btnVaciar").onclick    = vaciarFormulario
 
     modoInsercion()
 }
@@ -129,6 +144,7 @@ window.onload = inicializar
         <h1>Pure JS Agenda</h1>
         <div>
             <input type="button" id="btnInsertar"  value="Insertar"/>
+            <input type="button" id="btnVaciar"    value="Trash"/>
         </div>
         <br/>
         <form id="formulario">
@@ -163,9 +179,7 @@ window.onload = inicializar
                 </tr>
             </table>
         </form>
-
         <br/>
-
         <table>
             <tr>
                 <th>Name</th>

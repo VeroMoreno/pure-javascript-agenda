@@ -119,19 +119,37 @@ function rellenarTabla2(){
     }
 }
 
+function modificarPersona(){
+    for(let persona of personas){
+        if(persona.id == idPersonaSel){
+            persona.nombre    = document.getElementById("nombre").value
+            persona.direccion = document.getElementById("direccion").value
+            persona.telefono  = document.getElementById("telefono").value
+            persona.correoE   = document.getElementById("correoE").value
+            break
+        }
+    }
+    rellenarTabla()
+    vaciarFormulario()
+}
+
 //Para cuando no hay nada seleccionado en la tabla
 function modoInsercion(){
     document.getElementById("btnInsertar").disabled  = false
+    document.getElementById("btnModificar").disabled = true
 }
 
 //Para cuando el usuario selecciona una persona
 function modoSeleccion(){
     document.getElementById("btnInsertar").disabled  = true
+    document.getElementById("btnModificar").disabled = false
 }
 
 function inicializar(){
     document.getElementById("btnInsertar").onclick  = insertarPersona
     document.getElementById("btnVaciar").onclick    = vaciarFormulario
+    document.getElementById("btnModificar").onclick = modificarPersona
+
 
     modoInsercion()
 }
@@ -144,6 +162,7 @@ window.onload = inicializar
         <h1>Pure JS Agenda</h1>
         <div>
             <input type="button" id="btnInsertar"  value="Insertar"/>
+            <input type="button" id="btnModificar" value="Modify"/>
             <input type="button" id="btnVaciar"    value="Trash"/>
         </div>
         <br/>

@@ -36,6 +36,7 @@ function rellenarFormulario(persona){
     document.getElementById("direccion").value = persona.direccion
     document.getElementById("telefono").value  = persona.telefono
     document.getElementById("correoE").value   = persona.correoE
+    modoSeleccion()
 }
 
 function rellenarTabla(){
@@ -103,8 +104,21 @@ function rellenarTabla2(){
     }
 }
 
+//Para cuando no hay nada seleccionado en la tabla
+function modoInsercion(){
+    document.getElementById("btnInsertar").disabled  = false
+}
+
+//Para cuando el usuario selecciona una persona
+function modoSeleccion(){
+    document.getElementById("btnInsertar").disabled  = true
+}
+
+
 function inicializar(){
     document.getElementById("btnInsertar").onclick  = insertarPersona
+
+    modoInsercion()
 }
 
 window.onload = inicializar

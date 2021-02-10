@@ -72,6 +72,34 @@ function rellenarTabla(){
             trSeleccionado = tr
         }
         tablaPersonas.append(tr)
+        //Para que se rellene la segunda tabla
+        rellenarTabla2()
+    }
+}
+
+function rellenarTabla2(){
+    let tablaPersonas2 = document.getElementById("tablaPersonas2")
+    tablaPersonas2.innerHTML = ""
+
+    for(let persona of personas){
+        let trHtml =
+        `<tr>
+            <td>${persona.nombre}</td>
+            <td>${persona.direccion}</td>
+            <td>${persona.telefono}</td>
+            <td>${persona.correoE}</td>
+        </tr>`
+
+        let tbody = document.createElement("tbody")
+        tbody.innerHTML = trHtml
+
+        //let tr = tbody.childNodes[0]
+        let tr = tbody.firstElementChild
+        tr.onclick = function(){
+            rellenarFormulario(persona)
+        }
+
+        tablaPersonas2.append(tr)
     }
 }
 
@@ -132,6 +160,16 @@ window.onload = inicializar
                 <th>Em@ail</th>
             </tr>
             <tbody id="tablaPersonas"></tbody>
+        </table>
+        <hr/>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Em@ail</th>
+            </tr>
+            <tbody id="tablaPersonas2"></tbody>
         </table>
     </div>
 </body>
